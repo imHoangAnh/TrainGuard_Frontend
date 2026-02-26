@@ -48,8 +48,7 @@ export default function TrainDetails() {
     );
   }
 
-  const isCritical = train.status === 'CRITICAL';
-
+  const isCritical = train?.aiResult?.status === 1;
   return (
     <div className="p-6 h-screen flex flex-col gap-6 overflow-hidden">
       {/* Header */}
@@ -71,7 +70,7 @@ export default function TrainDetails() {
           </div>
           <div className={`px-4 py-2 rounded font-bold font-mono ${isCritical ? 'bg-rail-critical text-black animate-pulse' : 'bg-rail-primary/10 text-rail-primary'
             }`}>
-            {train.status}
+            {train?.aiResult?.status === 1 ? "CRITICAL" : "NORMAL"}
           </div>
         </div>
       </div>
@@ -81,7 +80,7 @@ export default function TrainDetails() {
 
         {/* Left Column: Driver & Environment (4 cols) */}
         <div className="col-span-12 lg:col-span-4 flex flex-col gap-6">
-          <DriverCamera image={train.image} status={train.status} className="flex-1 min-h-[250px]" />
+          <DriverCamera image={train.image} status={train?.aiResult?.status} className="flex-1 min-h-[250px]" />
           <EnvironmentPanel data={train.bme680} />
           <MotionPanel data={train.mpu6050} />
         </div>

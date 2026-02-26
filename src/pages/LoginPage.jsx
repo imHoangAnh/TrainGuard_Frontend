@@ -36,7 +36,6 @@ export default function LoginPage() {
           <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-rail-muted bg-clip-text text-transparent">
             TrainGuard
           </h1>
-          <p className="text-rail-muted text-sm mt-2">Secure Access Portal</p>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-rail-panel border border-rail-border rounded-xl p-8 shadow-2xl backdrop-blur-sm">
@@ -82,14 +81,10 @@ export default function LoginPage() {
             disabled={isLoading}
             className="w-full mt-6 bg-rail-primary text-black font-bold py-3 rounded-lg hover:bg-rail-primary/90 transition-all flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isLoading ? 'ĐANG ĐĂNG NHẬP...' : 'ACCESS SYSTEM'}
+            {isLoading ? 'ĐANG ĐĂNG NHẬP...' : 'Login'}
             {!isLoading && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
           </button>
         </form>
-
-        <p className="text-center text-rail-muted text-xs mt-6">
-          Restricted access. All activities are monitored.
-        </p>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind-merge';
 
 export default function DriverCamera({ image, status, className }) {
   // Mock confidence and drowsiness just for UI based on status
-  const isDrowsy = status === 'CRITICAL' || status === 'WARNING';
+  const isDrowsy = status === 1;
   const confidence = isDrowsy ? 45 : 98;
 
   return (
@@ -53,7 +53,7 @@ export default function DriverCamera({ image, status, className }) {
           "font-mono font-bold",
           confidence > 80 ? "text-rail-success" : "text-rail-warning"
         )}>
-          Normal
+          {isDrowsy ? "DROWSY" : "Normal"}
         </span>
       </div>
     </div>
